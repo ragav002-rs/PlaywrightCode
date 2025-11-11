@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Zepto Regression PW Suite" thread-count="3" parallel="tests">
+
+
+	<test name="HomePageTest">
+	<parameter name="baseURLKey" value="url-HomePage"></parameter>
+		
+		<classes>
+			<class name="com.qa.zepto.test.HomePageTest" />
+		</classes>
+	</test>
+
+
+	<test name="SearchPageTest">
+	<parameter name="baseURLKey" value="url-SearchPage"></parameter>
+		<classes>
+			<class name="com.qa.zepto.test.SearchPageTest" />
+		</classes>
+	</test>
+
+	<test name="LandingPageTest">
+	<parameter name="baseURLKey" value="url-LandingPage"></parameter>
+		<classes>
+		
+		<class name="com.qa.zepto.test.LandingPageTest"></class>
+		
+		</classes>
+	</test>
+	
+	
+</suite>

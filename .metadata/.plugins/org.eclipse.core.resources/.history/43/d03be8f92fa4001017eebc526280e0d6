@@ -1,0 +1,48 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class IframeConcept {
+
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browser.newPage();
+		page.navigate("https://webflow.com/made-in-webflow/iframe");
+		
+		page.locator("//div[@role='img' and contains(@aria-label, 'Vimeo Background Video')]").click();
+		page.frameLocator("//iframe[contains(@title ,'Vimeo Background Video with Play Sound Toggle')]").locator("text ='Watch Tutorial'").click();
+		
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+}

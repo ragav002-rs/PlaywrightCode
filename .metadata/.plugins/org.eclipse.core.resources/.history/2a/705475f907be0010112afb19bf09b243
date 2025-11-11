@@ -1,0 +1,38 @@
+package com.qa.zepto.base;
+
+import java.io.IOException;
+import java.util.Properties;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+
+import com.microsoft.playwright.Page;
+import com.qa.zepto.factory.PlaywrightFactory;
+import com.qa.zepto.pages.HomePage;
+import com.qa.zepto.pages.SearchPage;
+
+public class BaseTest {
+
+	PlaywrightFactory pf;
+	protected Page page;
+	protected HomePage homepage;
+	protected Properties prop;
+	protected SearchPage searchpage;
+	
+	@Parameters({"baseURLKey"})
+	@BeforeTest
+	public void setup() throws IOException {
+		pf = new PlaywrightFactory();
+		prop = pf.init_prop();
+		page = pf.initBrowser(prop);
+		homepage = new HomePage(page);
+		searchpage = new SearchPage(page);
+		
+	}	
+		@AfterTest
+		public void TearDown() {
+			page.context().browser().close();
+		}	
+	
+}

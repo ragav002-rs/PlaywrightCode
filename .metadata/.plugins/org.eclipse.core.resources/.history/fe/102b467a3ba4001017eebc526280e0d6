@@ -1,0 +1,56 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.FrameLocator;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class IframeConcept {
+
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browser.newPage();
+		page.navigate("https://webflow.com/made-in-webflow/iframe");
+		
+		page.locator("//div[@role='img' and contains(@aria-label, 'Interactive Presentation')]").click();
+		FrameLocator frame = page.frameLocator("//iframe[contains(@title ,'Interactive Presentation')]");
+		frame.locator("body").waitFor();
+		Locator link = frame.locator("div a:has-text('page')");
+		link.waitFor();
+		String header =	link.textContent();
+		System.out.println(header);
+		
+		
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+}

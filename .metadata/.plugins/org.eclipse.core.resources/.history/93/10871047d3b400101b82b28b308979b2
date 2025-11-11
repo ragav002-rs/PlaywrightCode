@@ -1,0 +1,50 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class AlertHandle {
+
+	static String result;
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://vinothqaacademy.com/alert-and-popup/");
+		
+		Locator jsalert = page.locator("//button[text()='Alert Box']");
+		jsalert.waitFor();
+		jsalert.click();
+		result = page.textContent("#demo");
+		System.out.println(result);
+		
+		Locator confirmalert = page.locator("//button[text()='Confirm Alert Box']");
+		confirmalert.waitFor();
+		confirmalert.click();
+		result = page.textContent("#demo");
+		System.out.println(result);
+		
+		Locator promptalert = page.locator("//button[text()='Prompt Alert Box']");
+		promptalert.waitFor();
+		promptalert.click();
+		result = page.textContent("#demo");
+		System.out.println(result);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Browser"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Page.LocatorOptions"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Locator"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Page.CloseOptions"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Playwright"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.BrowserType"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.BrowserType.LaunchOptions"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Page"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.Page.NavigateOptions"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="com.qa.zepto.constants.AppConstants"/>
+    <fullyQualifiedTypeName name="org.testng.Assert"/>
+</qualifiedTypeNameHistroy>

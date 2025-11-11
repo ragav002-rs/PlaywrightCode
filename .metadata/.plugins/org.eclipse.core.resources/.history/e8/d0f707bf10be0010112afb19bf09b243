@@ -1,0 +1,13 @@
+package com.qa.zepto.pages;
+
+public class LoginPage {
+	
+	private String emailid = "#username";
+	private String continue_btn = "#continue";
+	private String password = "#password";
+	private String 
+	
+	
+	
+
+}

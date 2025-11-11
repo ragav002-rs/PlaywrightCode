@@ -1,0 +1,58 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class BrowserContextSession {
+
+	public static void main(String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		
+		BrowserContext Br1 = browser.newContext();
+		Page p1 = Br1.newPage();
+		p1.navigate("https://www.amazon.in/");
+		p1.fill("twotabsearchtextbox", "watch");
+		System.out.println(p1.title());
+		
+		BrowserContext Br2 = browser.newContext();
+		Page p2 = Br2.newPage();
+		p2.navigate("https://www.google.com/maps");
+		p2.fill("q", "Kolathur");
+		System.out.println(p2.title());
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

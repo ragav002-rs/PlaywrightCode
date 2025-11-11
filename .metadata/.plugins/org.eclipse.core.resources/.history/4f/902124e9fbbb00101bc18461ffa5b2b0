@@ -1,0 +1,21 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class SearchPage extends HomePage{
+		
+		private String enterproduct = "#js-site-search-input";
+
+		public SearchPage(Page page) {
+			super(page);
+		}
+			
+		public void performsearch(String apparelname) {
+			
+		page.fill(enterproduct, apparelname);
+			
+		}
+	}
+
+
+

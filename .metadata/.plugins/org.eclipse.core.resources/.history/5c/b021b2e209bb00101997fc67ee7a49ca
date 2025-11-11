@@ -1,0 +1,33 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class HomePage {
+
+	Page page;
+	
+	private String search = "#srcInpu";
+	private String searchicon = ".dIb c8 h24 w24 pA t8 l12";
+	private String searchtitle = "//span[text()='shirt']";
+	
+	
+	public HomePage(Page page) {
+		this.page = page;		
+	}
+	
+	public String HomepageTitle() {
+		String title = page.title();
+		System.out.println("Title:" + title);
+		return title;
+	
+	public String HomepageUrl() {
+		return page.url();
+	}
+	
+	public String searchoption(String productname) {
+		page.fill(search, productname);
+		page.click(searchicon);
+		return page.textContent(searchtitle);
+	}
+
+}

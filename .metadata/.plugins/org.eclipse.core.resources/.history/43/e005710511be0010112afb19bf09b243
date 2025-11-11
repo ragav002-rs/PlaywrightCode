@@ -1,0 +1,17 @@
+package com.qa.zepto.pages;
+
+public class LoginPage {
+	
+	private String emailid = "#username";
+	private String password = "#password";
+	private String Singin_btn = "button[type='submit']";
+	
+	public void performSignin() {
+		
+		
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,60 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class TextSelectorsBasics {
+
+	
+	public static void main ( String args []) {
+		
+		
+	Playwright playwright = Playwright.create();
+	Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+	BrowserContext browsercontext = browser.newContext();
+	
+	Page page = browsercontext.newPage();
+	page.navigate("https://www.cashify.in/");
+	
+	Locator Services = page.locator("svg.Group_34611 div:has-text('Gurgaon')");
+	Services.waitFor();
+	Services.textContent();
+	System.out.println(Services);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+}

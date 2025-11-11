@@ -1,0 +1,46 @@
+package playwrightsessions;
+
+import java.util.List;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class LocatorSessions {
+
+	
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://www.amazon.in/");
+		
+		//Single Element 
+		Locator Sales = page.locator("text = Amazon Pay");
+		Sales.first().click();
+		
+		
+		//Multiple Elements
+		Locator dropdown = page.locator("#searchDropdownBox"); 
+		dropdown.waitFor();		
+		Locator products = page.locator("#searchDropdownBox option");
+		System.out.println(products.count());
+		List<String> optionslist = products.allTextContents();
+		for (String e : optionslist) {
+			System.out.println(e);
+			products.last().click();
+		}
+		
+	}
+	
+
+	
+	
+}

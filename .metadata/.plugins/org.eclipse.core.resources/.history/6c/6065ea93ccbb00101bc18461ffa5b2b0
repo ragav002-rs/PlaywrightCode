@@ -1,0 +1,5 @@
+package com.qa.zepto.constants;
+
+public class AppConstants {
+
+}

@@ -1,0 +1,8 @@
+browser = webkit
+
+baseURLKey = https://www.limeroad.com/vmart/exclusive
+baseURLKey = https://www.maxfashion.in/in/en/
+
+
+
+headless = false

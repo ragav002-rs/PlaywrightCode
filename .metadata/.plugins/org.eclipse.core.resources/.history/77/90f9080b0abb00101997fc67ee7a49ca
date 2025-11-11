@@ -1,0 +1,43 @@
+package com.qa.zepto.factory;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class PlaywrightFactory {
+
+	Playwright playwright ;
+	Browser browser;
+	BrowserContext browsercontext;
+	Page page;
+	
+	public Page initBrowser (String browsername) {
+		
+		playwright = Playwright.create();
+		
+		switch (browsername.toUpperCase()) {
+		case "chromium":
+			browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		break;
+		case "firefox":
+			browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		break;
+		case "webkit":
+			browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		break;
+		
+		}
+		
+		browsercontext = browser.newContext();
+		page = browsercontext.newPage();
+		page.navigate("https://www.zeptonow.com/");
+		
+		return page;
+				
+	
+	}
+	
+	
+}

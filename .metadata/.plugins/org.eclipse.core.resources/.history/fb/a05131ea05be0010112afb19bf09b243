@@ -1,0 +1,40 @@
+package com.qa.zepto.test;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.qa.zepto.base.BaseTest;
+
+public class SearchPageTest extends BaseTest {
+	
+	
+	@Test
+	public void GetSearchPageURL() {
+		String actualsearchpageurl = searchpage.SearchPageUrl();
+		Assert.assertEquals(actualsearchpageurl, prop.getProperty("url-SearchPage"));
+	}
+	
+	@DataProvider
+	public Object[][] PutData()  {
+		return new Object[][] {
+			
+		{"shirt"},
+		{"pant"},
+		{"kurta"}
+	};
+
+	}
+	
+	
+	
+	@Test(dataProvider = "PutData")
+	public void SearchCall(String productname) throws InterruptedException {
+		searchpage.performsearch(productname);
+		Thread.sleep(2000);
+	
+		
+		
+	}
+	
+}

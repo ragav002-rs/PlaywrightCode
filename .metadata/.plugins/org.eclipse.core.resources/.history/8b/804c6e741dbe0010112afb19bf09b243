@@ -1,0 +1,22 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class LandingPage {
+
+		Page page;
+		
+	private String Signupclick = "//a[text() ='Sign in']";
+	
+	public String getPageURL() {
+		String url = page.url();
+		System.out.println(url);
+		return url;
+	}
+	
+	public void sigup() {
+		page.click(Signupclick);
+	}
+	
+	
+}

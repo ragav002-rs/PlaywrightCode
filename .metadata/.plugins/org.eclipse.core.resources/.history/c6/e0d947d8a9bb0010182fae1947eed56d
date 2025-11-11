@@ -1,0 +1,62 @@
+package com.qa.zepto.test;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.microsoft.playwright.Page;
+import com.qa.zepto.factory.PlaywrightFactory;
+import com.qa.zepto.pages.HomePage;
+
+public class HomePageTest {
+
+	PlaywrightFactory pf;
+	Page page;
+	HomePage homepage;
+	
+	@BeforeTest
+	public void setup() {
+		pf = new PlaywrightFactory();
+		page = pf.initBrowser("chromium");
+		homepage = new HomePage(page);
+	}
+	
+	@Test
+	public void GetHomepageTitle() {
+		String actualtitle = homepage.HomepageTitle();		
+		//Assert.assertEquals(actualtitle, null);
+	}
+	
+	@Test
+	public void GetHomepageUrl() {
+		String actualurl = homepage.HomepageUrl();
+		Assert.assertEquals(actualurl, "https://www.limeroad.com/vmart/exclusive");
+	}
+	
+	@DataProvider
+	public Object[] [] PostData() {
+		return new Object[] [] {
+			
+			{"9677980904"},
+			{"9789974578"},
+			{"9176513207"}
+		};
+		
+	}
+	
+	@Test(dataProvider ="Postdata")
+	public void Login(String mobile_num) throws InterruptedException {
+		String actual_num = homepage.ProfileLogin(mobile_num);
+		Assert.assertEquals(actual_num, "sign in");
+		
+	}
+	
+	@AfterTest
+	public void TearDown() {
+		page.context().browser().close();
+	}
+
+	
+}

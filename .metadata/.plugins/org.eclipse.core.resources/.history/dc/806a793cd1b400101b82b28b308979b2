@@ -1,0 +1,31 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class AlertHandle {
+
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://www.irctc.co.in/nget/train-search");
+		
+		page.locator("//button[text()='OK']").click();
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+}

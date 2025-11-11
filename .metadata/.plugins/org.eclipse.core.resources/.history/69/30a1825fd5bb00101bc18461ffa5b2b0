@@ -1,0 +1,19 @@
+package com.qa.zepto.test;
+
+import com.qa.zepto.base.BaseTest;
+
+public class SearchPageTest extends BaseTest{
+	
+	@Test
+	public void searchcall() {
+		Searchpage.
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,50 @@
+package playwrightsessions;
+
+import java.nio.file.Paths;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Download;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class FileDownload {
+
+	public static void main (String [] args) {
+		
+	Playwright playwright = Playwright.create();
+	Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+	BrowserContext browsercontext = browser.newContext();
+	
+	Page page = browsercontext.newPage();
+	page.navigate("https://www.java.com/en/download/manual.jsp");
+	
+	Download downloadfile = page.waitForDownload(() -> {
+		
+		Locator downloadlink = page.locator("a:text('Windows Online')");
+			downloadlink.click();
+	
+	});
+
+	String title = downloadfile.page().title();
+	System.out.println(title);
+	
+	String url = downloadfile.page().url();
+	System.out.println(url);
+	
+	String OGfilename = downloadfile.suggestedFilename();
+	System.out.println(OGfilename);
+	
+	String path = downloadfile.path().toString();
+	System.out.println(path);
+	
+	downloadfile.saveAs(Paths.get("SR.exe"));
+
+	
+		
+	}
+	
+	
+}

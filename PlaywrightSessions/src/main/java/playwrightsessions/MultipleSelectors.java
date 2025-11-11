@@ -1,0 +1,76 @@
+package playwrightsessions;
+
+import java.util.List;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class MultipleSelectors {
+
+	public static void main ( String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+//		page.navigate("https://selectorshub.com/xpath-practice-page/");
+		page.navigate("https://www.milkymist.com/");
+		
+//		List<String> officallinks = page.locator("label:has-text('User Email'), label:has-text('Card Number'), a:has-text('Learning Hub'), a:has-text('Click to Download PNG File')").allInnerTexts();
+//		
+//		for(int i=0; i<officallinks.size(); i++) {
+//			
+//			System.out.println(officallinks.get(i));
+//		}
+		
+
+		
+		List<String> xpathlinks = page.locator("//span[text()='View all products'] | //p[@id='comp-kg0hvs320label'] | //p[text()='Contact Us']").allInnerTexts();
+		
+		for(int i=0; i<xpathlinks.size(); i++) {
+			
+			System.out.println(xpathlinks.get(i));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+
+	
+}

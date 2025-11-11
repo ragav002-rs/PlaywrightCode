@@ -1,0 +1,45 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class HomePage {
+
+	Page page;
+	
+	private String searchclick ="//div[@id='deskSearch']";
+	private String search = "#srcInpu";
+	private String searchicon = "//div[@class='srcInpuSub dTc vM w48 pR hcurP']";
+	private String searchtitle = "//span[text()='shirt']";
+	
+	
+	public HomePage(Page page) {
+		this.page = page;		
+	}
+	
+	public String HomepageTitle() {
+		String title = page.title();
+		System.out.println("Title:" + title);
+		return title;
+	}
+	
+	public String HomepageUrl() {
+		String url = page.url();
+		System.out.println("URL:" + url);
+		return url;
+		
+	}
+	
+	public String SearchOption(String productname) throws InterruptedException {
+		page.click(searchclick);
+		Thread.sleep(2000);
+		page.fill(search, productname);
+		Thread.sleep(2000);
+		page.click(searchicon);
+		Thread.sleep(2000);
+		String searchheader = page.textContent(searchtitle);
+		Thread.sleep(2000);
+		System.out.println("SearchTitle:" + searchheader);
+		return searchheader;
+	}
+
+}

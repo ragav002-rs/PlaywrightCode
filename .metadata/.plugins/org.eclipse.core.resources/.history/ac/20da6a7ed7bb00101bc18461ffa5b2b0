@@ -1,0 +1,26 @@
+package com.qa.zepto.test;
+
+import com.qa.zepto.base.BaseTest;
+
+public class SearchPageTest extends BaseTest{
+	
+	
+	@DataProvider
+	public void 
+	
+	
+	
+	
+	@Test
+	public String searchcall() {
+		String prodcut_name = searchpage.performsearch("shirt");
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

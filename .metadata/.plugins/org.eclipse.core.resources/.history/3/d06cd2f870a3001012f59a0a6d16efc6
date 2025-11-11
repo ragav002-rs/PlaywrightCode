@@ -1,0 +1,59 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class TextSelectorsBasics {
+
+	
+	public static void main ( String args []) {
+		
+		
+	Playwright playwright = Playwright.create();
+	Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+	BrowserContext browsercontext = browser.newContext();
+	
+	Page page = browsercontext.newPage();
+	page.navigate("https://www.cashify.in/");
+	
+	String Services = page.locator("div.flex flex-col items-center justify-center gap-1 span:has-text('Sell Phone')").textContent();
+	System.out.println(Services);
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+}

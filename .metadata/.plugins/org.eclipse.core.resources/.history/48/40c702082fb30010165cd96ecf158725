@@ -1,0 +1,35 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class NthElement {
+	
+	
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://www.parleproducts.com/");
+		
+		
+		Locator footer_link = page.locator("div.col-md-7 li a >> nth=-1");
+		String footertext = footer_link.textContent();
+		System.out.println(footertext);
+		footer_link.click();
+		
+		
+	}
+	
+	
+	
+
+}

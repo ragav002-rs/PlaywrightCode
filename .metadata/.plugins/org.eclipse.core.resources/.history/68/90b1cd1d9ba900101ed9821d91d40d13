@@ -1,0 +1,50 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class ShadowDom {
+
+	
+	public static void main (String agrs []) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+	//	page.navigate("https://practice.expandtesting.com/shadowdom");
+	//	page.navigate("https://selectorshub.com/iframe-in-shadow-dom/");
+		page.navigate("https://selectorshub.com/shadow-dom-in-iframe/");
+	
+	//	Locator link = page.locator("#shadow-host #my-btn");
+	//	link.waitFor();
+	//	String Text = link.textContent();
+	//	System.out.println(Text);
+		
+	/*
+	 * Locator link1 = page.frameLocator("#pact1").locator("#jex"); link1.waitFor();
+	 * link1.fill("RAGAV"); Locator link2 =
+	 * page.frameLocator("#pact1").locator("#connect"); link2.waitFor();
+	 * link2.click();
+	 */
+		
+		Locator link3 = page.frameLocator("#pact").locator("#snacktime #tea");
+				link3.waitFor();
+				link3.fill("Chips");
+		Locator link4 = page.frameLocator("#pact").locator("#snacktime #pizza");
+				link4.waitFor();
+				link4.fill("Biriyani");
+				
+		
+	
+
+		
+		
+	}
+}
+

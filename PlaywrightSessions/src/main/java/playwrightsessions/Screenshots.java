@@ -1,0 +1,52 @@
+package playwrightsessions;
+
+import java.nio.file.Paths;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Locator.ScreenshotOptions;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class Screenshots {
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920,902));
+		
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://www.fancode.com/");
+		
+	page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("/home/ragavkumar/Desktop/fullpage.jpg")).setFullPage(true));
+	
+	Locator Ele_ss = page.locator("img[alt='England tour of new zealand, 2025 cricket vertical banner']");
+		Ele_ss.screenshot(new ScreenshotOptions().setPath(Paths.get("/home/ragavkumar/Desktop/ele_ss.jpeg")));
+		
+		Locator div_ss = page.locator("(//div[contains(@class , 'masthead-segment' )])[2]");
+		div_ss.screenshot(new ScreenshotOptions().setPath(Paths.get("/home/ragavkumar/Desktop/div_ss.jpg")));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+}

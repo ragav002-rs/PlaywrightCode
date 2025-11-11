@@ -1,0 +1,31 @@
+package com.qa.zepto.test;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.microsoft.playwright.Page;
+import com.qa.zepto.base.BaseTest;
+
+public class SearchPageTest extends BaseTest{
+	
+	
+	@DataProvider
+	public void 
+	
+	
+	
+	
+	@Test
+	public void searchcall(String productname) {
+			String actualproduct_name = searchpage.performsearch(productname);
+			Assert.assertEquals(actualproduct_name, productname);
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

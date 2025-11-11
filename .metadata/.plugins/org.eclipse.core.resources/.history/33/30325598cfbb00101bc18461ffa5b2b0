@@ -1,0 +1,6 @@
+browser = chromium
+
+url = https://www.limeroad.com/vmart/exclusive
+
+
+headless = false

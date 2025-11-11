@@ -1,0 +1,6 @@
+browser = webkit
+
+url = https://www.maxfashion.in/in/en/
+
+
+headless = false

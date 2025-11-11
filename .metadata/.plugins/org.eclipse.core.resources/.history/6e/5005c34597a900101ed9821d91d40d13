@@ -1,0 +1,43 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class ShadowDom {
+
+	
+	public static void main (String agrs []) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+	//	page.navigate("https://practice.expandtesting.com/shadowdom");
+		page.navigate("https://selectorshub.com/iframe-in-shadow-dom/");
+	
+	//	Locator link = page.locator("#shadow-host #my-btn");
+	//	link.waitFor();
+	//	String Text = link.textContent();
+	//	System.out.println(Text);
+		
+		Locator link1 = page.frameLocator("#pact1").locator("#userName #jex");
+				link1.waitFor();
+				link1.fill("RAGAV");
+		Locator link2 = page.frameLocator("#pact1").locator("#userName #connect");
+				link2.waitFor();
+				link2.click();
+		
+		
+		
+	
+
+		
+		
+	}
+}
+

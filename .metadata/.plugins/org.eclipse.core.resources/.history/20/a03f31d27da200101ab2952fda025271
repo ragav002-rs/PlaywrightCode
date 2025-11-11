@@ -1,0 +1,51 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class BrowserContextSession {
+
+	public static void main(String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		
+		BrowserContext Br1 = browser.newContext();
+		Page p1 = Br1.newPage();
+		p1.navigate(null);
+		p1.fill(null, null);
+		System.out.println(p1.title());
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

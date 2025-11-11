@@ -1,0 +1,64 @@
+package com.qa.zepto.factory;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class PlaywrightFactory {
+
+	Playwright playwright ;
+	Browser browser;
+	BrowserContext browsercontext;
+	Page page;
+	
+	Properties prop;
+	
+	public Page initBrowser (Properties prop) {
+		
+		String browsername = prop.getProperty("browser").trim();
+		playwright = Playwright.create();
+		
+		switch (browsername.toLowerCase()) {
+		case "chromium":
+			browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		break;
+		case "firefox":
+			browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		break;
+		case "webkit":
+			browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		break;
+		
+		default:
+		System.out.println("Please pass correct browsername");
+		break;
+		
+		}
+		
+		browsercontext = browser.newContext();
+		page = browsercontext.newPage();
+		page.navigate(prop.getProperty("url-HomePage").trim());
+		
+		return page;
+	}
+	
+	public Properties init_prop() throws IOException  {
+		
+		FileInputStream file = new FileInputStream("./src/test/resource/config/config.properties");
+		Properties prop = new Properties();
+		prop.load(file);
+	
+		return prop;
+	}
+
+	public Page initBrowser(Properties prop2, String baseURLKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

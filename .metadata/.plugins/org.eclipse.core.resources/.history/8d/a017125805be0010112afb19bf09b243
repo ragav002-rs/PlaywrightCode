@@ -1,0 +1,23 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class SearchPage {
+		
+	Page page;
+	
+		private String enterproduct = "#js-site-search-input";
+
+		public SearchPage(Page page) {
+			this.page = page;
+		}
+			
+		public void performsearch(String apparelname) {
+			
+		page.fill(enterproduct, apparelname);
+
+		}
+	}
+
+
+

@@ -1,0 +1,13 @@
+package com.qa.zepto.test;
+
+public class SearchPageTest extends HomePageTest{
+	
+	
+	private String enterproduct = "#js-site-search-input";
+
+	
+	public void performsearch(String productname) {
+		
+		page.fill(enterproduct, productname);
+	}
+}

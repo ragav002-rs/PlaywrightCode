@@ -1,0 +1,57 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class HomePage {
+
+	Page page;
+	
+	private String loginclick ="#createScrapbook";
+	private String VerifyTitle = "//div[text()='sign in']";
+	private String enter_num = "#emph";
+	private String clicknext = "//div[@class='mb10 pR']";
+	private String Signinlink = "//a[text() ='Sign in']";
+	
+	
+	
+	public HomePage(Page page) {
+		this.page = page;		
+	}
+	
+	public String HomepageTitle() {
+		String title = page.title();
+		System.out.println("Title:" + title);
+		return title;
+	}
+	
+	public String HomepageUrl() {
+		String url = page.url();
+		System.out.println("URL:" + url);
+		return url;
+		
+	}
+	
+	public String ProfileLogin(String mobilenumber) throws InterruptedException {
+		page.click(loginclick);
+		Thread.sleep(2000);
+		String title = page.textContent(VerifyTitle);
+		System.out.println("Title is :" + title);
+		Thread.sleep(2000);
+		page.fill(enter_num, mobilenumber);
+		Thread.sleep(2000);
+		page.click(clicknext);
+		return title;
+		
+	}
+
+	public void NavigatetoLoginPage() {
+		page.click(Signinlink);
+		return new LoginPage(page);
+		
+	}
+	
+	
+	
+	
+	
+}

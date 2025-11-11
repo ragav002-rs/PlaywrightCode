@@ -1,0 +1,30 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class ShadowDom {
+
+	
+	public static void main (String agrs []) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://practice.expandtesting.com/shadowdom");
+	
+		String Text = page.locator("shadow-host #my-btn").textContent();
+		System.out.println(Text);
+		
+		
+
+		
+		
+	}
+}
+

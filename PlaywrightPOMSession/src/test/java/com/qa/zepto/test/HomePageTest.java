@@ -1,0 +1,35 @@
+package com.qa.zepto.test;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.qa.zepto.base.BaseTest;
+import com.qa.zepto.constants.AppConstants;
+
+public class HomePageTest extends BaseTest{
+
+	
+	@Test
+	public void GetHomepageTitle() {
+		String actualtitle = homepage.HomepageTitle();		
+		Assert.assertEquals(actualtitle, AppConstants.HOME_PAGE_TITLE);
+	}
+	
+	@Test
+	public void GetHomepageUrl() {
+		String actualurl = homepage.HomepageUrl();
+		Assert.assertEquals(actualurl, prop.getProperty("url-HomePage"));
+	}
+	
+	
+	@Test
+	public void Login() throws InterruptedException {
+		String actual_num = homepage.ProfileLogin("9789974578");
+		Thread.sleep(2000);
+		Assert.assertEquals(actual_num, "sign in");
+		
+		
+	}
+	
+}

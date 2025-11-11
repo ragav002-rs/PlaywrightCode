@@ -1,0 +1,28 @@
+package com.qa.zepto.pages;
+
+public class HomePage {
+
+	private String search = "#srcInpu";
+	private String searchicon = ".dIb c8 h24 w24 pA t8 l12";
+	private String searchtitle = "//span[text()='shirt']";
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

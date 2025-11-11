@@ -1,0 +1,32 @@
+package com.qa.zepto.test;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.qa.zepto.base.BaseTest;
+
+public class LandingPageTest extends BaseTest{
+
+	
+	@Test
+	public void getPageurl() {
+		String actualurl = landingpage.getPageURL();
+		Assert.assertEquals(actualurl, prop.getProperty("url-LandingPage"));
+		
+	}
+	
+	public void signuptest() {
+		landingpage.sigup();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

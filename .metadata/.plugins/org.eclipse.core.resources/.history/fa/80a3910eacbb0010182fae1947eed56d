@@ -1,0 +1,75 @@
+package com.qa.zepto.test;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.microsoft.playwright.Page;
+import com.qa.zepto.factory.PlaywrightFactory;
+import com.qa.zepto.pages.HomePage;
+
+public class HomePageTest {
+
+	PlaywrightFactory pf;
+	Page page;
+	HomePage homepage;
+	
+	@BeforeTest
+	@Parameters({"browser"})
+    @BeforeMethod
+    public void setup(String browserName) {
+        pf = new PlaywrightFactory();
+        // The page object is initialized for the current thread and browser
+        page = pf.initBrowser(browserName); 
+        
+        // Initialize the HomePage object using the newly created page
+        homepage = new HomePage(page); 
+	}
+	
+	@Test
+	public void GetHomepageTitle() {
+		String actualtitle = homepage.HomepageTitle();		
+		//Assert.assertEquals(actualtitle, null);
+	}
+	
+	@Test
+	public void GetHomepageUrl() {
+		String actualurl = homepage.HomepageUrl();
+		Assert.assertEquals(actualurl, "https://www.limeroad.com/vmart/exclusive");
+	}
+	
+	@DataProvider
+	public Object[] [] PostData() {
+		return new Object[] [] {
+			
+			{"9677980904"},
+			{"9789974578"},
+			{"9176513207"}
+		};
+		
+	}
+	
+	@Test(dataProvider ="PostData")
+	public void Login(String mobile_num) throws InterruptedException {
+		String actual_num = homepage.ProfileLogin(mobile_num);
+		Assert.assertEquals(actual_num, "sign in");
+		Thread.sleep(2000);
+		
+	}
+	
+	 @AfterMethod
+	    public void tearDown() {
+	        // Closes the page, context, and browser for this specific iteration.
+	        // This ensures a clean state for the next mobile number login.
+	        if (page != null) {
+	            page.context().browser().close();
+	        }
+	    }
+
+	
+}

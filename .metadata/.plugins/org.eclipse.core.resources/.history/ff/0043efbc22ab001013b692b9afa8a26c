@@ -1,0 +1,37 @@
+package playwrightsessions;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class ParentChildElements {
+
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://havells.com/");
+		Locator footerlink = page.locator("div.footer-nav:has(:text('Smart Home'))");
+	//	Locator footerlink = page.locator("div.footer-nav a:has-text('Smart Home')");
+		String links = footerlink.textContent();
+		System.out.println(links);
+		footerlink.click();
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+}

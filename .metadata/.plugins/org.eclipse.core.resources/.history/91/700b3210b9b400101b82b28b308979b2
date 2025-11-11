@@ -1,0 +1,28 @@
+package playwrightsessions;
+
+import java.nio.file.Paths;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class LoginLaunch {
+
+	
+	
+	public static void main (String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext(new Browser.NewContextOptions().setStorageStatePath(Paths.get("PlaywrightSessions/resources/Amazonlogin.json")));
+		
+	//	Page page = browsercontext.newPage();
+	//	page.navigate("https://www.amazon.in/");
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,47 @@
+package playwrightsessions;
+
+import java.util.List;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class ReactSelectors {
+
+	
+	public static void main ( String [] args) {
+		
+		Playwright playwright = Playwright.create();
+		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+		BrowserContext browsercontext = browser.newContext();
+		
+		Page page = browsercontext.newPage();
+		page.navigate("https://www.zeptonow.com/");
+		
+		
+				
+		Locator searchbar = page.locator("_react=h[aria-label='Search for products']");
+		searchbar.click();
+		
+		Locator inputsearch = page.getByPlaceholder("Search for over 5000 products");
+		inputsearch.waitFor();
+		inputsearch.fill("raincoat");
+		
+		Locator productlinks = page.locator("img[class='relative overflow-hidden']");
+		List<String> products = productlinks.allInnerTexts();
+		
+		for(int i=0; i<products.size(); i++) {
+			
+			System.out.println(products);
+		}
+		
+	
+		
+		
+	}
+	
+
+}

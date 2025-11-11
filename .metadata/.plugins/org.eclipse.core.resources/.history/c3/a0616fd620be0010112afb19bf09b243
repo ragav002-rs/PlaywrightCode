@@ -1,0 +1,9 @@
+browser = webkit
+
+url-HomePage = https://www.limeroad.com/vmart/exclusive
+url-SearchPage = https://www.maxfashion.in/in/en/
+url-LandingPage = https://www.linkedin.com/signup
+url-LoginPage = https://www.linkedin.com/uas/login
+
+
+headless = false

@@ -1,0 +1,22 @@
+package com.qa.zepto.pages;
+
+import com.microsoft.playwright.Page;
+
+public class LoginPage {
+	
+	Page page;
+	
+	private String emailid = "#username";
+	private String password = "#password";
+	private String Singin_btn = "button[type='submit']";
+	
+	public void performSignin(String email) {
+		page.fill(emailid, email);
+		
+		
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,8 @@
+browser = webkit
+
+url-HomePage = https://www.limeroad.com/vmart/exclusive
+url-SearchPage = https://www.maxfashion.in/in/en/
+
+
+
+headless = false

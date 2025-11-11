@@ -1,0 +1,38 @@
+package com.qa.zepto.test;
+
+import com.microsoft.playwright.Page;
+import com.qa.zepto.factory.PlaywrightFactory;
+import com.qa.zepto.pages.HomePage;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
+public class BaseTest {
+
+    // These thread-local variables safely store the state for each running test thread
+    protected PlaywrightFactory pf;
+    protected Page page;
+    protected HomePage homepage;
+
+    // --- Configuration Methods ---
+
+    @Parameters({"browser"})
+    @BeforeMethod
+    public void setup(String browserName) {
+        pf = new PlaywrightFactory();
+        // The page object is initialized for the current thread and browser
+        page = pf.initBrowser(browserName); 
+        
+        // Initialize the HomePage object using the newly created page
+        homepage = new HomePage(page); 
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        // Closes the page, context, and browser for this specific iteration.
+        // This ensures a clean state for the next mobile number login.
+        if (page != null) {
+            page.context().browser().close();
+        }
+    }
+}
