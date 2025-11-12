@@ -60,7 +60,7 @@ public class PlaywrightFactory {
 		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setChannel("chrome")));
 		break;
 		default:
-		System.out.println("Please pass correct browsername");
+		System.out.println("Please pass accurate browsername"); 
 		break;
 		
 		}
