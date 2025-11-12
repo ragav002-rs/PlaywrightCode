@@ -48,16 +48,16 @@ public class PlaywrightFactory {
 		
 		switch (browsername.toLowerCase()) {
 		case "chromium":
-			tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)));
+			tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true)));
 		break;
 		case "firefox":
-			tlbrowser.set(getplaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(false)));
+			tlbrowser.set(getplaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(true)));
 		break;
 		case "webkit":
-			tlbrowser.set(getplaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(false)));
+			tlbrowser.set(getplaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(true)));
 		break;
 		case "chrome":
-		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setChannel("chrome")));
+		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setChannel("chrome")));
 		break;
 		default:
 		System.out.println("Please pass correct browsername"); 
