@@ -1,3 +1,5 @@
 1762767533280	Delete element
 1762787807619	Delete element
 1762864249531	Rename resource 'Testng.xml'
+1762931199265	Rename resource 'resource'
+1762931251023	Move 'testng.xml' to 'TestRunners'
