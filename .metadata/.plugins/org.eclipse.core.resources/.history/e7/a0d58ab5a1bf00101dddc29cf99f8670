@@ -60,7 +60,7 @@ public class PlaywrightFactory {
 		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setChannel("chrome")));
 		break;
 		default:
-		System.out.println("Please pass correct browsername"); 
+		System.out.println("Please pass accurate browsername"); 
 		break;
 		
 		}
@@ -75,7 +75,7 @@ public class PlaywrightFactory {
 	
 	public Properties init_prop() throws IOException  {
 		
-		FileInputStream file = new FileInputStream("./src/test/resource/config/config.properties");
+		FileInputStream file = new FileInputStream("./src/test/resources/config/config.properties");
 		Properties prop = new Properties();
 		prop.load(file);
 	
