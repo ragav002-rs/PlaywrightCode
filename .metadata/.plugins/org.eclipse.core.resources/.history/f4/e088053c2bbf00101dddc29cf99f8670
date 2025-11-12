@@ -1,0 +1,84 @@
+package com.qa.zepto.factory;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+public class PlaywrightFactory {
+
+	Playwright playwright ;
+	Browser browser;
+	BrowserContext browsercontext;
+	Page page;
+	
+	Properties prop;
+	
+	private static ThreadLocal<Playwright> tlplaywright = new ThreadLocal<Playwright>();
+	private static ThreadLocal<Browser> tlbrowser = new ThreadLocal<Browser>();
+	private static ThreadLocal<BrowserContext> tlbrowsercontext = new ThreadLocal<BrowserContext>();
+	private static ThreadLocal<Page> tlpage = new ThreadLocal<Page>();
+	
+	public static Playwright getplaywright() {
+		return tlplaywright.get();
+		}
+	
+	public static Browser getbrowser() {
+		return tlbrowser.get();
+	}
+	
+	public static BrowserContext getbrowsercontext() {
+		return tlbrowsercontext.get();
+	}
+	
+	public static Page getpage() {
+		return tlpage.get();
+	}
+	
+	
+	public Page initBrowser (Properties prop, String baseURLKey) {
+		
+		String browsername = prop.getProperty("browser").trim();
+		tlplaywright.set(Playwright.create());
+		
+		switch (browsername.toLowerCase()) {
+		case "chromium":
+			tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true)));
+		break;
+		case "firefox":
+			tlbrowser.set(getplaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(true)));
+		break;
+		case "webkit":
+			tlbrowser.set(getplaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(true)));
+		break;
+		case "chrome":
+		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setChannel("chrome")));
+		break;
+		default:
+		System.out.println("Please pass correct browsername");
+		break;
+		
+		}
+		
+		tlbrowsercontext.set(getbrowser().newContext());
+		tlpage.set(getbrowsercontext().newPage());
+		getpage().navigate(prop.getProperty(baseURLKey).trim());
+		return getpage();
+		
+	
+	}
+	
+	public Properties init_prop() throws IOException  {
+		
+		FileInputStream file = new FileInputStream("./src/test/resource/config/config.properties");
+		Properties prop = new Properties();
+		prop.load(file);
+	
+		return prop;
+	}
+}

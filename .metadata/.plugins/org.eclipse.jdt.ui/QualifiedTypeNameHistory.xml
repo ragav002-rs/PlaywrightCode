@@ -7,10 +7,10 @@
     <fullyQualifiedTypeName name="com.microsoft.playwright.Page.CloseOptions"/>
     <fullyQualifiedTypeName name="com.microsoft.playwright.Playwright"/>
     <fullyQualifiedTypeName name="com.microsoft.playwright.BrowserType"/>
-    <fullyQualifiedTypeName name="com.microsoft.playwright.BrowserType.LaunchOptions"/>
     <fullyQualifiedTypeName name="com.microsoft.playwright.Page"/>
     <fullyQualifiedTypeName name="com.microsoft.playwright.Page.NavigateOptions"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="com.qa.zepto.constants.AppConstants"/>
     <fullyQualifiedTypeName name="org.testng.Assert"/>
+    <fullyQualifiedTypeName name="com.microsoft.playwright.BrowserType.LaunchOptions"/>
 </qualifiedTypeNameHistroy>
