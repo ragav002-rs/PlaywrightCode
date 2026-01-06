@@ -1,7 +1,6 @@
 package com.qa.zepto.test;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.zepto.base.BaseTest;
