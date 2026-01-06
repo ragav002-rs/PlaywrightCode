@@ -55,7 +55,7 @@
         <suiteXmlFiles>
             <!-- This line dynamically accepts the value passed by the Jenkins goal:
                  -DsuiteXmlFile=testng.xml -->
-            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
         </suiteXmlFiles>
     </configuration>
         
