@@ -44,7 +44,7 @@ pipeline {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 dir('playwright-repo') {
                     git 'https://github.com/ragav002-rs/PlaywrightCode'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
+                    bat "mvn -f PlaywrightPOMSession clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
                 }
             }
         }
