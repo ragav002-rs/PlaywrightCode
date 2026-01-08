@@ -1,0 +1,118 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven'
+    }
+
+    environment {
+        STATUS_COLOR = "#28a745"
+    }
+
+    stages {
+
+        stage('Smoke Test') {
+            steps {
+                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+
+        stage('Build Validation') {
+            steps {
+                echo "validation stage before QA deploy"
+            }
+        }
+
+        stage('Deploy to QA') {
+            steps {
+                echo "Deploying to QA environment"
+            }
+        }
+
+        stage('Regression Test') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/ragav002-rs/PlaywrightCode'
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
+                }
+            }
+        }
+    }
+
+    post {
+
+        success {
+            script {
+                STATUS_COLOR = "#28a745"
+            }
+        }
+
+        unstable {
+            script {
+                STATUS_COLOR = "#fb6f00"
+            }
+        }
+
+        failure {
+            script {
+                STATUS_COLOR = "#ff0033"
+            }
+        }
+
+        always {
+            emailext(
+                subject: "Pipeline ${currentBuild.currentResult}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                mimeType: 'text/html',
+                to: 'ragav002@gmail.com',
+                body: """
+                <html>
+                <body>
+                    <h2 style="color:${STATUS_COLOR};">
+                        Pipeline ${currentBuild.currentResult}
+                    </h2>
+
+                    <table border="1" cellpadding="8" cellspacing="0">
+                        <tr>
+                            <td><b>Job Name</b></td>
+                            <td>${env.JOB_NAME}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Build Number</b></td>
+                            <td>#${env.BUILD_NUMBER}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Status</b></td>
+                            <td style="color:${STATUS_COLOR};">
+                                ${currentBuild.currentResult}
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+
+                    <a href="${env.BUILD_URL}console">
+                        <button style="background:#007bff;color:white;padding:10px;border:none;">
+                            View Console Output
+                        </button>
+                    </a>
+
+                    <a href="${env.BUILD_URL}testReport">
+                        <button style="background:#28a745;color:white;padding:10px;border:none;">
+                            View Test Results
+                        </button>
+                    </a>
+
+                </body>
+                </html>
+                """
+            )
+        }
+    }
+}
