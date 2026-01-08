@@ -6,8 +6,8 @@ pipeline {
     }
 
     environment {
-        SMOKE_PASSED = 0; SMOKE_FAILED = 0; SMOKE_SKIPPED = 0;
-        REG_PASSED = 0; REG_FAILED = 0; REG_SKIPPED = 0;
+        SMOKE_PASSED = '0'; SMOKE_FAILED = '0'; SMOKE_SKIPPED = '0';
+        REG_PASSED = '0'; REG_FAILED = '0'; REG_SKIPPED = '0';
         STATUS_COLOR = "#28a745"
     }
 
@@ -21,16 +21,15 @@ pipeline {
             }
           }
             post {
-                always {
-                     junit testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
-                          allowEmptyResults: true         
-				script {
-					def action = currentBuild.rawBuild.getAction(hudson.tasks.test.AbstractTestResultAction.class)
-					if (action) {
-                            env.SMOKE_PASSED = action.passCount.toInteger()
-                            env.SMOKE_FAILED = action.failCount.toInteger()
-                            env.SMOKE_SKIPPED = action.skipCount.toInteger()
-                        }
+                always {                 
+					script {
+						 def smoke = junit (
+					testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
+					allowEmptyResults: true
+					)
+                            env.SMOKE_PASSED = smoke.passCount.toString()
+                            env.SMOKE_FAILED = smoke.failCount.toString()
+                            env.SMOKE_SKIPPED = smoke.skipCount.toString()               
 					}
                 }	
             }
@@ -58,22 +57,20 @@ pipeline {
             }
         }    
         	post {
-				always {
-				junit testResults: 'playwright-repo/target/surefire-reports/*.xml',
-				 allowEmptyResults: true
-			script {
-				def action = currentBuild.rawBuild.getAction(hudson.tasks.test.AbstractTestResultAction.class)
-				if (action) {
-                            env.REG_PASSED = action.passCount.toInteger() - env.SMOKE_PASSED.toInteger()
-                            env.REG_FAILED = action.failCount.toInteger() - env.SMOKE_FAILED.toInteger()
-                            env.REG_SKIPPED = action.skipCount.toInteger() - env.SMOKE_SKIPPED.toInteger()
+				always {				
+					script {
+						def reg = junit (
+				testResults: 'playwright-repo/target/surefire-reports/*.xml',
+				allowEmptyResults: true				
+					)					
+                            env.REG_PASSED = reg.passCount.toString()
+                            env.REG_FAILED = reg.failCount.toString()
+                            env.REG_SKIPPED = reg.skipCount.toString()
                         }
 					}
 				}  
 			}
-		}
-	}
-	
+
 	post {
         success {
             script { env.STATUS_COLOR = "#28a745" }
