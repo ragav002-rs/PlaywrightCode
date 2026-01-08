@@ -13,15 +13,17 @@ pipeline {
 
         stage('Smoke Test') {
             steps {
+            dir('smoke-repo') {
                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
+            }
             post {
                 always {
-                     junit testResults: '**/target/surefire-reports/TEST-*.xml',
+                     junit testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
                           allowEmptyResults: true
-                    archiveArtifacts 'target/*.jar'
-                }
+                    archiveArtifacts 'smoke-repo/target/*.jar'
+                }	
             }
         }
 
@@ -40,12 +42,13 @@ pipeline {
         stage('Regression Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                dir('playwright-repo') {
                     git 'https://github.com/ragav002-rs/PlaywrightCode'
                     bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
                 }
             }
         }
-    }
+	}
 
     post {
 
