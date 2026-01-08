@@ -55,7 +55,8 @@ pipeline {
                     bat "mvn -f PlaywrightPOMSession clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
                 }
             }
-        }    
+        } 
+    }   
         	post {
 				always {				
 					script {
