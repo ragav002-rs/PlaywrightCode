@@ -20,7 +20,6 @@ pipeline {
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
           }
-        }
             post {
                 always {                 
 					script {
@@ -34,7 +33,7 @@ pipeline {
 					}
                 }	
             }
-
+		}
 
         stage('Build Validation') {
             steps {
@@ -56,8 +55,7 @@ pipeline {
                     bat "mvn -f PlaywrightPOMSession clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
                 }
             }
-        } 
-    }   
+        }  
         	post {
 				always {				
 					script {
@@ -72,7 +70,7 @@ pipeline {
 					}
 				}  
 			}
-			
+		}			
 	post {
         success {
             script { env.STATUS_COLOR = "#28a745" }
