@@ -18,7 +18,8 @@ pipeline {
             }
             post {
                 always {
-                    junit '**/target/surefire-reports/TEST-*.xml'
+                     junit testResults: '**/target/surefire-reports/TEST-*.xml',
+                          allowEmptyResults: true
                     archiveArtifacts 'target/*.jar'
                 }
             }
@@ -40,7 +41,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/ragav002-rs/PlaywrightCode'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
                 }
             }
         }
@@ -50,19 +51,19 @@ pipeline {
 
         success {
             script {
-                STATUS_COLOR = "#28a745"
+                env.STATUS_COLOR = "#28a745"
             }
         }
 
         unstable {
             script {
-                STATUS_COLOR = "#fb6f00"
+                env.STATUS_COLOR = "#fb6f00"
             }
         }
 
         failure {
             script {
-                STATUS_COLOR = "#ff0033"
+                env.STATUS_COLOR = "#ff0033"
             }
         }
 
