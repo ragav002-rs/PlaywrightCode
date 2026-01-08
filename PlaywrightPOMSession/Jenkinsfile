@@ -6,6 +6,8 @@ pipeline {
     }
 
     environment {
+        SMOKE_PASSED = 0; SMOKE_FAILED = 0; SMOKE_SKIPPED = 0;
+        REG_PASSED = 0; REG_FAILED = 0; REG_SKIPPED = 0;
         STATUS_COLOR = "#28a745"
     }
 
@@ -17,12 +19,19 @@ pipeline {
                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-            }
+          }
             post {
                 always {
                      junit testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
-                          allowEmptyResults: true
-                    archiveArtifacts 'smoke-repo/target/*.jar'
+                          allowEmptyResults: true         
+				script {
+					def action = currentBuild.rawBuild.getAction(hudson.tasks.test.AbstractTestResultAction.class)
+					if (action) {
+                            env.SMOKE_PASSED = action.passCount.toInteger()
+                            env.SMOKE_FAILED = action.failCount.toInteger()
+                            env.SMOKE_SKIPPED = action.skipCount.toInteger()
+                        }
+					}
                 }	
             }
         }
@@ -47,30 +56,35 @@ pipeline {
                     bat "mvn -f PlaywrightPOMSession clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunners/testng.xml"
                 }
             }
-        }
+        }    
+        	post {
+				always {
+				junit testResults: 'playwright-repo/target/surefire-reports/*.xml',
+				 allowEmptyResults: true
+			script {
+				def action = currentBuild.rawBuild.getAction(hudson.tasks.test.AbstractTestResultAction.class)
+				if (action) {
+                            env.REG_PASSED = action.passCount.toInteger() - env.SMOKE_PASSED.toInteger()
+                            env.REG_FAILED = action.failCount.toInteger() - env.SMOKE_FAILED.toInteger()
+                            env.REG_SKIPPED = action.skipCount.toInteger() - env.SMOKE_SKIPPED.toInteger()
+                        }
+					}
+				}  
+			}
+		}
 	}
-
-}
-    post {
-
+	
+	post {
         success {
-            script {
-                env.STATUS_COLOR = "#28a745"
-            }
+            script { env.STATUS_COLOR = "#28a745" }
         }
-
         unstable {
-            script {
-                env.STATUS_COLOR = "#fb6f00"
-            }
+            script { env.STATUS_COLOR = "#fb6f00" }
         }
-
         failure {
-            script {
-                env.STATUS_COLOR = "#ff0033"
-            }
+            script { env.STATUS_COLOR = "#ff0033" }
         }
-
+        
         always {
             emailext(
                 subject: "Pipeline ${currentBuild.currentResult}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
@@ -78,42 +92,35 @@ pipeline {
                 to: 'ragav002@gmail.com',
                 body: """
                 <html>
-                <body>
-                    <h2 style="color:${STATUS_COLOR};">
-                        Pipeline ${currentBuild.currentResult}
-                    </h2>
-
-                    <table border="1" cellpadding="8" cellspacing="0">
-                        <tr>
-                            <td><b>Job Name</b></td>
-                            <td>${env.JOB_NAME}</td>
-                        </tr>
-                        <tr>
-                            <td><b>Build Number</b></td>
-                            <td>#${env.BUILD_NUMBER}</td>
-                        </tr>
-                        <tr>
-                            <td><b>Status</b></td>
-                            <td style="color:${STATUS_COLOR};">
-                                ${currentBuild.currentResult}
-                            </td>
-                        </tr>
-                    </table>
-
-                    <br/>
-
-                    <a href="${env.BUILD_URL}console">
-                        <button style="background:#007bff;color:white;padding:10px;border:none;">
-                            View Console Output
-                        </button>
-                    </a>
-
-                    <a href="${env.BUILD_URL}testReport">
-                        <button style="background:#28a745;color:white;padding:10px;border:none;">
-                            View Test Results
-                        </button>
-                    </a>
-
+                <body style="font-family: Arial; padding: 20px;">
+                    <div style="background: ${env.STATUS_COLOR}; color: white; padding: 15px; border-radius: 5px 5px 0 0;">
+                        <h2 style="margin: 0;">Execution Summary</h2>
+                    </div>
+                    <div style="border: 1px solid #ddd; padding: 20px;">
+                        <h3>Test Breakdown</h3>
+                        <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%;">
+                            <tr style="background: #f2f2f2;">
+                                <th>Test Suite</th>
+                                <th>Passed</th>
+                                <th>Failed</th>
+                                <th>Skipped</th>
+                            </tr>
+                            <tr>
+                                <td><b>Smoke Tests</b></td>
+                                <td style="color: green;">${env.SMOKE_PASSED}</td>
+                                <td style="color: red;">${env.SMOKE_FAILED}</td>
+                                <td style="color: gray;">${env.SMOKE_SKIPPED}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Regression Tests</b></td>
+                                <td style="color: green;">${env.REG_PASSED}</td>
+                                <td style="color: red;">${env.REG_FAILED}</td>
+                                <td style="color: gray;">${env.REG_SKIPPED}</td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <a href="${env.BUILD_URL}testReport" style="background: #28a745; color: white; padding: 10px; text-decoration: none; border-radius: 4px;">Detailed Test Report</a>
+                    </div>
                 </body>
                 </html>
                 """
