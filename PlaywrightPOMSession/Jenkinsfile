@@ -23,7 +23,7 @@ pipeline {
             post {
                 always {                 
 					script {
-    					smokeResults = junit(
+    				def	smokeResults = junit(
        					testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
         				allowEmptyResults: false
    					 )
@@ -62,7 +62,7 @@ pipeline {
         	post {
 				always {				
 					script {
-    					regressionResults = junit(
+    				def	regressionResults = junit(
         				testResults: 'playwright-repo/PlaywrightPOMSession/target/surefire-reports/*.xml',
         				allowEmptyResults: false
     				)
