@@ -48,18 +48,14 @@
 
       <!-- Maven Surefire Plugin (for running TestNG tests) -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
-        <configuration>
-        <suiteXmlFiles>
-            <!-- This line dynamically accepts the value passed by the Jenkins goal:
-                 -DsuiteXmlFile=testng.xml -->
-            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-        </suiteXmlFiles>
-    </configuration>
-        
-      </plugin>
+  		<groupId>org.apache.maven.plugins</groupId>
+  		<artifactId>maven-surefire-plugin</artifactId>
+  		<version>3.1.2</version>
+  		<configuration>
+   			<reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+    		<testNGArtifactName>org.testng:testng</testNGArtifactName>
+  		</configuration>
+		</plugin>
     </plugins>
   </build>
 

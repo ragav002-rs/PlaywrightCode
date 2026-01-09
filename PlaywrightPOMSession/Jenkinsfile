@@ -60,8 +60,8 @@ pipeline {
 				always {				
 					script {
 						def reg = junit(
-  									testResults: 'playwright-repo/**/target/surefire-reports/*.xml',
-  									allowEmptyResults: true
+  									testResults: 'playwright-repo/**/test-output/testng-results.xml',
+ 									allowEmptyResults: false
 								)
                             env.REG_PASSED = reg.passCount.toString()
                             env.REG_FAILED = reg.failCount.toString()
