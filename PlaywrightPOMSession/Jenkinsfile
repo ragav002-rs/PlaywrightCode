@@ -25,7 +25,7 @@ pipeline {
 					script {
     					smokeResults = junit(
        					testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
-        				allowEmptyResults: falsesss
+        				allowEmptyResults: false
    					 )
 
     					env.SMOKE_PASSED  = smokeResults.passCount.toString()
@@ -33,7 +33,7 @@ pipeline {
 						env.SMOKE_SKIPPED = smokeResults.skipCount.toString()
 						
 						echo "Smoke → Passed=${env.SMOKE_PASSED}, Failed=${env.SMOKE_FAILED}, Skipped=${env.SMOKE_SKIPPED}"
-					}ss
+					}
                 }	
             }
 		}
