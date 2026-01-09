@@ -6,8 +6,8 @@ pipeline {
     }
 
     environment {
-        SMOKE_PASSED = '0' SMOKE_FAILED = '0' SMOKE_SKIPPED = '0'
-        REG_PASSED = '0' REG_FAILED = '0' REG_SKIPPED = '0'
+        SMOKE_PASSED = '0' ; SMOKE_FAILED = '0'; SMOKE_SKIPPED = '0';
+        REG_PASSED = '0'; REG_FAILED = '0'; REG_SKIPPED = '0';
         STATUS_COLOR = "#28a745"
     }
 
