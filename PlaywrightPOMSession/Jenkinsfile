@@ -23,10 +23,10 @@ pipeline {
             post {
                 always {                 
 					script {
-						 def smoke = junit (
-					testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
-					allowEmptyResults: true
-					)
+						 def smoke = junit(
+    									testResults: 'target/surefire-reports/TEST-*.xml',
+    									allowEmptyResults: false
+									)
                             env.SMOKE_PASSED = smoke.passCount.toString()
                             env.SMOKE_FAILED = smoke.failCount.toString()
                             env.SMOKE_SKIPPED = smoke.skipCount.toString()               
@@ -60,8 +60,8 @@ pipeline {
 				always {				
 					script {
 						def reg = junit(
-  									testResults: 'playwright-repo/PlaywrightPOMSession/target/surefire-reports/*.xml',
- 									allowEmptyResults: false
+    								testResults: 'PlaywrightPOMSession/target/surefire-reports/*.xml',
+    								allowEmptyResults: false
 								)
                             env.REG_PASSED = reg.passCount.toString()
                             env.REG_FAILED = reg.failCount.toString()
