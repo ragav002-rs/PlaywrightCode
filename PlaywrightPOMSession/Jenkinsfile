@@ -23,14 +23,17 @@ pipeline {
             post {
                 always {                 
 					script {
-						 def smoke = junit(
-    									testResults: 'target/surefire-reports/TEST-*.xml',
-    									allowEmptyResults: false
-									)
-                            env.SMOKE_PASSED = smoke.passCount.toString()
-                            env.SMOKE_FAILED = smoke.failCount.toString()
-                            env.SMOKE_SKIPPED = smoke.skipCount.toString()               
-					}
+    					smokeResults = junit(
+       					testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml',
+        				allowEmptyResults: falsesss
+   					 )
+
+    					env.SMOKE_PASSED  = smokeResults.passCount.toString()
+						env.SMOKE_FAILED  = smokeResults.failCount.toString()
+						env.SMOKE_SKIPPED = smokeResults.skipCount.toString()
+						
+						echo "Smoke → Passed=${env.SMOKE_PASSED}, Failed=${env.SMOKE_FAILED}, Skipped=${env.SMOKE_SKIPPED}"
+					}ss
                 }	
             }
 		}
@@ -59,18 +62,21 @@ pipeline {
         	post {
 				always {				
 					script {
-						def reg = junit(
-    								testResults: 'PlaywrightPOMSession/target/surefire-reports/*.xml',
-    								allowEmptyResults: false
-								)
-                            env.REG_PASSED = reg.passCount.toString()
-                            env.REG_FAILED = reg.failCount.toString()
-                            env.REG_SKIPPED = reg.skipCount.toString()
-                        }
+    					regressionResults = junit(
+        				testResults: 'playwright-repo/PlaywrightPOMSession/target/surefire-reports/*.xml',
+        				allowEmptyResults: false
+    				)
+
+    					env.REG_PASSED  = regressionResults.passCount.toString()
+						env.REG_FAILED  = regressionResults.failCount.toString()
+						env.REG_SKIPPED = regressionResults.skipCount.toString()
+							
+						echo "Regression → Passed=${env.REG_PASSED}, Failed=${env.REG_FAILED}, Skipped=${env.REG_SKIPPED}"
 					}
-				}  
-			}
-		}			
+				}
+			}  
+		}
+	}			
 	post {
         success {
             script { env.STATUS_COLOR = "#28a745" }
