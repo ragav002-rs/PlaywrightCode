@@ -81,12 +81,12 @@ pipeline {
 					            </td>
 					        </tr>
 					        <tr>
-					            <td><b>Job Name</b></td>
-					            <td>${env.JOB_NAME}</td>
+					            <td style="border: 1px solid #ddd;"><b>Job Name</b></td>
+					            <td style="border: 1px solid #ddd;">${env.JOB_NAME}</td>
 					        </tr>
 					        <tr>
-					            <td><b>Build Number</b></td>
-					            <td>#${env.BUILD_NUMBER}</td>
+					             <td style="border: 1px solid #ddd;"><b>Build Number</b></td>
+					             <td style="border: 1px solid #ddd;">#${env.BUILD_NUMBER}</td>
 					        </tr>
 					    </table>
 					
