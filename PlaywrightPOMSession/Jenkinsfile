@@ -71,7 +71,7 @@ pipeline {
                             
                            <!-- BOX 1 : PIPELINE SUMMARY -->
 								<div style="background:white; border:2px solid #ddd; padding:20px; border-radius:6px;">
-					    		<h3 style="margin-top:0;">Pipeline Summary</h3>
+					    		<h3 style="margin-top:0; text-align: center;">Pipeline Summary</h3>
 					
 					    <table cellpadding="10" style="width:100%; border-collapse: collapse;">
 					        <tr>
@@ -102,7 +102,7 @@ pipeline {
                             
                          <!-- BOX 2 : TEST EXECUTION SUMMARY -->                          
                             <div style="background:white; border:1px solid #ddd; padding:20px; border-radius:6px;">
-                                <h3>Test Execution Summary</h3>
+                                <h3 style="text-align: center;">Test Execution Summary</h3>
                                 <table border="1" cellpadding="10" style="border-collapse: collapse; width:100%;">
                                     <tr style="background:#f2f2f2;">
                                         <th>Test Suite</th>
