@@ -70,23 +70,23 @@ pipeline {
                             <br/>
                             
                            <!-- BOX 1 : PIPELINE SUMMARY -->
-								<div style="background:white; border:1px solid #ddd; padding:20px; border-radius:6px;">
+								<div style="background:white; border:2px solid #ddd; padding:20px; border-radius:6px;">
 					    		<h3 style="margin-top:0;">Pipeline Summary</h3>
 					
 					    <table cellpadding="10" style="width:100%; border-collapse: collapse;">
 					        <tr>
-					            <td><b>Overall Status</b></td>
-					            <td style="color:${statusColor}; font-weight:bold;">
+					            <td style="border: 2px solid #ddd;"><b>Overall Status</b></td>
+					            <td style="color:${statusColor}; border: 2px solid #ddd; font-weight:bold;">
 					                ${currentBuild.currentResult}
 					            </td>
 					        </tr>
 					        <tr>
-					            <td style="border: 1px solid #ddd;"><b>Job Name</b></td>
-					            <td style="border: 1px solid #ddd;">${env.JOB_NAME}</td>
+					            <td style="border: 2px solid #ddd;"><b>Job Name</b></td>
+					            <td style="border: 2px solid #ddd;">${env.JOB_NAME}</td>
 					        </tr>
 					        <tr>
-					             <td style="border: 1px solid #ddd;"><b>Build Number</b></td>
-					             <td style="border: 1px solid #ddd;">#${env.BUILD_NUMBER}</td>
+					             <td style="border: 2px solid #ddd;"><b>Build Number</b></td>
+					             <td style="border: 2px solid #ddd;">#${env.BUILD_NUMBER}</td>
 					        </tr>
 					    </table>
 					
