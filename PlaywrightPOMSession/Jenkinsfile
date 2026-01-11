@@ -117,7 +117,7 @@ pipeline {
                                         <th>Passed</th>
                                         <th>Failed</th>
                                         <th>Skipped</th>
-                                        <th>Total</th>
+                                        <th>TotalTests</th>
                                     </tr>
                                     <tr>
                                         <td><b>Smoke Tests</b></td>
