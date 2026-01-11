@@ -124,21 +124,15 @@ pipeline {
                                         <td style="color:green;">${smokeStats.passed}</td>
                                         <td style="color:red;">${smokeStats.failed}</td>
                                         <td>${smokeStats.skipped}</td>
+                                         <td>${smokeStats.total}</td>
                                     </tr>
                                     <tr>
                                         <td><b>Regression Tests</b></td>
                                         <td style="color:green;">${regStats.passed}</td>
                                         <td style="color:red;">${regStats.failed}</td>
                                         <td>${regStats.skipped}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Total Tests</b></td>                                       
-                                        <td>${smokeStats.total}</td>
-                                    </tr>
-                                     <tr>
-                                        <td><b>Total Tests</b></td>                                       
                                         <td>${regStats.total}</td>
-                                    </tr>                                  
+                                    </tr>                                          
                                 </table>
                                 
                                 <br/>
