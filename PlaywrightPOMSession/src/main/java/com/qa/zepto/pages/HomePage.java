@@ -7,8 +7,8 @@ public class HomePage {
 	Page page;
 	
 	private String loginclick ="#createScrapbook";
-	private String VerifyTitle = "//div[text()='sign in']";
-	private String enter_num = "#emph";
+	private String VerifyTitle = "//div[text()='sign up']";
+	private String enter_num = "aa";
 	private String clicknext = "//div[@class='mb10 pR']";
 
 	
