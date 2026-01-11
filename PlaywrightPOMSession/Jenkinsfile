@@ -18,6 +18,8 @@ pipeline {
                 always {                 
                     script {
                         def results = junit testResults: 'smoke-repo/target/surefire-reports/TEST-*.xml'
+                       
+                       	smokeStats.total = results.totalCount
                         smokeStats.passed = results.passCount
                         smokeStats.failed = results.failCount
                         smokeStats.skipped = results.skipCount
@@ -40,7 +42,9 @@ pipeline {
             post {
                 always {				
                     script {
-                        def results = junit testResults: 'playwright-repo/PlaywrightPOMSession/target/surefire-reports/*.xml'
+                        def results = junit testResults: 'playwright-repo/PlaywrightPOMSession/target/surefire-reports/*.xml'                      
+						
+						regstats.total = results.totalCount
                         regStats.passed = results.passCount
                         regStats.failed = results.failCount
                         regStats.skipped = results.skipCount
@@ -113,6 +117,7 @@ pipeline {
                                         <th>Passed</th>
                                         <th>Failed</th>
                                         <th>Skipped</th>
+                                        <th>Total</th>
                                     </tr>
                                     <tr>
                                         <td><b>Smoke Tests</b></td>
@@ -126,6 +131,14 @@ pipeline {
                                         <td style="color:red;">${regStats.failed}</td>
                                         <td>${regStats.skipped}</td>
                                     </tr>
+                                    <tr>
+                                        <td><b>Total Tests</b></td>                                       
+                                        <td>${smokeStats.total}</td>
+                                    </tr>
+                                     <tr>
+                                        <td><b>Total Tests</b></td>                                       
+                                        <td>${regstats.total}</td>
+                                    </tr>                                  
                                 </table>
                                 
                                 <br/>
