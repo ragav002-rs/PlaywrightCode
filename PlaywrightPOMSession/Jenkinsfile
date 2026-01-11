@@ -44,7 +44,7 @@ pipeline {
                     script {
                         def results = junit testResults: 'playwright-repo/PlaywrightPOMSession/target/surefire-reports/*.xml'                      
 						
-						regstats.total = results.totalCount
+						regStats.total = results.totalCount
                         regStats.passed = results.passCount
                         regStats.failed = results.failCount
                         regStats.skipped = results.skipCount
@@ -137,7 +137,7 @@ pipeline {
                                     </tr>
                                      <tr>
                                         <td><b>Total Tests</b></td>                                       
-                                        <td>${regstats.total}</td>
+                                        <td>${regStats.total}</td>
                                     </tr>                                  
                                 </table>
                                 
