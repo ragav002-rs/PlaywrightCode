@@ -1,9 +1,13 @@
 package com.qa.zepto.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.microsoft.playwright.Page;
 
 public class LoginPage {
 	
+	Logger logger = LogManager.getLogger(LoginPage.class);
 	Page page;
 	
 	private String emailid = "#username";
@@ -16,7 +20,7 @@ public class LoginPage {
 	
 	public String getPageURl() {
 		String url = page.url();
-		System.out.println("URL:" + url);
+		logger.debug("URL:" + url);
 		return url;
 	}
 	
@@ -28,7 +32,4 @@ public class LoginPage {
 		
 	}
 	
-	
-	
-
 }

@@ -1,9 +1,13 @@
 package com.qa.zepto.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.microsoft.playwright.Page;
 
 public class HomePage {
 
+	Logger logger = LogManager.getLogger(HomePage.class);
 	Page page;
 	
 	private String loginclick ="#createScrapbook";
@@ -18,13 +22,13 @@ public class HomePage {
 	
 	public String HomepageTitle() {
 		String title = page.title();
-		System.out.println("Title:" + title);
+		logger.debug("Title:" + title);
 		return title;
 	}
 	
 	public String HomepageUrl() {
 		String url = page.url();
-		System.out.println("URL:" + url);
+		logger.debug("URL:" + url);
 		return url;
 		
 	}
@@ -33,7 +37,7 @@ public class HomePage {
 		page.click(loginclick);
 		Thread.sleep(2000);
 		String title = page.textContent(VerifyTitle);
-		System.out.println("Title is :" + title);
+		logger.debug("Title is :" + title);
 		Thread.sleep(2000);
 		page.fill(enter_num, mobilenumber);
 		Thread.sleep(2000);
