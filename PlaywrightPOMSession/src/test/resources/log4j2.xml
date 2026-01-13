@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status= "WARN">
+
+<Appenders>
+	<RollingFile name= "RollingFile" fileName= "C:/PlaywrightPOMSession/PlaywrightPOM.log"
+		filePattern= "C:/PlaywrightPOMSession/PlaywrightPOM-%d-%i.log.gz">
+	<PatternLayout pattern= "%d %t %-5p %c - %m%n"/>
+	<Policies>
+	<SizeBasedTriggeringPolicy size= "2KB"/>
+	<TimeBasedTriggeringPolicy interval= "1" modulate="true"/>
+	</Policies>
+	<DefaultRolloverStrategy max= "5"/>
+		</RollingFile>
+</Appenders>
+
+
+<Loggers>
+	<Root level= "debug">
+	<AppenderRef ref= "RollingFile"/>
+	</Root>
+	
+	<Logger name= "com.qa.zepto" level= "debug" additivity="false">
+	<AppenderRef ref= "RollingFile"/>
+	</Logger>
+	
+</Loggers>
+</Configuration>
