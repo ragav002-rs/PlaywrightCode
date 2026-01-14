@@ -1,0 +1,8 @@
+2026-01-14 17:03:12,528 main INFO  org.testng.internal.Utils - [[Utils]] Attempting to create C:\GithubCode\PlaywrightCode\PlaywrightPOMSession\test-output\junitreports\TEST-com.qa.zepto.test.HomePageTest.xml
+2026-01-14 17:03:12,538 main INFO  org.testng.internal.Utils - [[Utils]]   Directory C:\GithubCode\PlaywrightCode\PlaywrightPOMSession\test-output\junitreports exists: true
+2026-01-14 17:03:12,539 main INFO  org.testng.internal.Utils - Creating C:\GithubCode\PlaywrightCode\PlaywrightPOMSession\test-output\junitreports\TEST-com.qa.zepto.test.HomePageTest.xml
+2026-01-14 17:03:12,543 main INFO  org.testng.internal.Utils - [[Utils]] Attempting to create C:\GithubCode\PlaywrightCode\PlaywrightPOMSession\test-output\junitreports\TEST-com.qa.zepto.test.SearchPageTest.xml
+2026-01-14 17:03:12,544 main INFO  org.testng.internal.Utils - [[Utils]]   Directory C:\GithubCode\PlaywrightCode\PlaywrightPOMSession\test-output\junitreports exists: true
+2026-01-14 17:03:12,545 main INFO  org.testng.internal.Utils - Creating C:\GithubCode\PlaywrightCode\PlaywrightPOMSession\test-output\junitreports\TEST-com.qa.zepto.test.SearchPageTest.xml
+2026-01-14 17:03:12,545 main INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@5b11a194: 36 ms
+2026-01-14 17:03:12,546 main INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@37bd68c3: 1 ms

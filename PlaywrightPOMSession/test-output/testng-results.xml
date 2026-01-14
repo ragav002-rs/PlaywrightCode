@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-12T14:10:21 IST" name="Regression PW Suite" finished-at="2025-11-12T14:10:34 IST" duration-ms="13244">
+  <suite started-at="2026-01-14T17:49:06 IST" name="Regression PW Suite" finished-at="2026-01-14T17:49:22 IST" duration-ms="15757">
     <groups>
     </groups>
-    <test started-at="2025-11-12T14:10:21 IST" name="Landing Page Test" finished-at="2025-11-12T14:10:28 IST" duration-ms="7324">
+    <test started-at="2026-01-14T17:49:06 IST" name="Landing Page Test" finished-at="2026-01-14T17:49:13 IST" duration-ms="7240">
       <class name="com.qa.zepto.test.LandingPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.LandingPageTest@7a8c8dcf]" started-at="2025-11-12T14:10:21 IST" name="setup" finished-at="2025-11-12T14:10:28 IST" duration-ms="6841" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.LandingPageTest@253d9f73]" started-at="2026-01-14T17:49:06 IST" name="setup" finished-at="2026-01-14T17:49:11 IST" duration-ms="5501" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,19 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="getPageurl()[pri:0, instance:com.qa.zepto.test.LandingPageTest@7a8c8dcf]" started-at="2025-11-12T14:10:28 IST" name="getPageurl" finished-at="2025-11-12T14:10:28 IST" duration-ms="6" status="PASS">
+        <test-method signature="getPageurl()[pri:0, instance:com.qa.zepto.test.LandingPageTest@253d9f73]" started-at="2026-01-14T17:49:12 IST" name="getPageurl" finished-at="2026-01-14T17:49:12 IST" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getPageurl -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.LandingPageTest@7a8c8dcf]" started-at="2025-11-12T14:10:28 IST" name="TearDown" finished-at="2025-11-12T14:10:28 IST" duration-ms="441" status="PASS">
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.LandingPageTest@253d9f73]" started-at="2026-01-14T17:49:12 IST" name="TearDown" finished-at="2026-01-14T17:49:13 IST" duration-ms="1686" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
       </class> <!-- com.qa.zepto.test.LandingPageTest -->
     </test> <!-- Landing Page Test -->
-    <test started-at="2025-11-12T14:10:21 IST" name="Login Page Tests" finished-at="2025-11-12T14:10:29 IST" duration-ms="7621">
+    <test started-at="2026-01-14T17:49:06 IST" name="Login Page Tests" finished-at="2026-01-14T17:49:16 IST" duration-ms="9687">
       <class name="com.qa.zepto.test.LoginPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.LoginPageTest@233795b6]" started-at="2025-11-12T14:10:21 IST" name="setup" finished-at="2025-11-12T14:10:27 IST" duration-ms="5980" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.LoginPageTest@176b3f44]" started-at="2026-01-14T17:49:06 IST" name="setup" finished-at="2026-01-14T17:49:12 IST" duration-ms="6133" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -41,54 +41,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="loginurl()[pri:0, instance:com.qa.zepto.test.LoginPageTest@233795b6]" started-at="2025-11-12T14:10:27 IST" name="loginurl" finished-at="2025-11-12T14:10:27 IST" duration-ms="3" status="PASS">
+        <test-method signature="loginurl()[pri:0, instance:com.qa.zepto.test.LoginPageTest@176b3f44]" started-at="2026-01-14T17:49:12 IST" name="loginurl" finished-at="2026-01-14T17:49:12 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginurl -->
-        <test-method signature="performloginurl()[pri:0, instance:com.qa.zepto.test.LoginPageTest@233795b6]" started-at="2025-11-12T14:10:27 IST" name="performloginurl" finished-at="2025-11-12T14:10:29 IST" duration-ms="1501" status="PASS">
+        <test-method signature="performloginurl()[pri:0, instance:com.qa.zepto.test.LoginPageTest@176b3f44]" started-at="2026-01-14T17:49:12 IST" name="performloginurl" finished-at="2026-01-14T17:49:15 IST" duration-ms="2979" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- performloginurl -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.LoginPageTest@233795b6]" started-at="2025-11-12T14:10:29 IST" name="TearDown" finished-at="2025-11-12T14:10:29 IST" duration-ms="101" status="PASS">
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.LoginPageTest@176b3f44]" started-at="2026-01-14T17:49:15 IST" name="TearDown" finished-at="2026-01-14T17:49:16 IST" duration-ms="559" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
       </class> <!-- com.qa.zepto.test.LoginPageTest -->
     </test> <!-- Login Page Tests -->
-    <test started-at="2025-11-12T14:10:21 IST" name="Home Page Tests" finished-at="2025-11-12T14:10:33 IST" duration-ms="12026">
-      <class name="com.qa.zepto.test.HomePageTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.HomePageTest@71d44a3]" started-at="2025-11-12T14:10:21 IST" name="setup" finished-at="2025-11-12T14:10:25 IST" duration-ms="3666" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[url-HomePage]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="GetHomepageTitle()[pri:0, instance:com.qa.zepto.test.HomePageTest@71d44a3]" started-at="2025-11-12T14:10:25 IST" name="GetHomepageTitle" finished-at="2025-11-12T14:10:25 IST" duration-ms="26" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GetHomepageTitle -->
-        <test-method signature="GetHomepageUrl()[pri:0, instance:com.qa.zepto.test.HomePageTest@71d44a3]" started-at="2025-11-12T14:10:25 IST" name="GetHomepageUrl" finished-at="2025-11-12T14:10:25 IST" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GetHomepageUrl -->
-        <test-method signature="Login()[pri:0, instance:com.qa.zepto.test.HomePageTest@71d44a3]" started-at="2025-11-12T14:10:25 IST" name="Login" finished-at="2025-11-12T14:10:33 IST" duration-ms="8196" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.HomePageTest@71d44a3]" started-at="2025-11-12T14:10:33 IST" name="TearDown" finished-at="2025-11-12T14:10:33 IST" duration-ms="71" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-      </class> <!-- com.qa.zepto.test.HomePageTest -->
-    </test> <!-- Home Page Tests -->
-    <test started-at="2025-11-12T14:10:21 IST" name="Search Page Test" finished-at="2025-11-12T14:10:34 IST" duration-ms="13244">
+    <test started-at="2026-01-14T17:49:06 IST" name="Search Page Test" finished-at="2026-01-14T17:49:21 IST" duration-ms="14580">
       <class name="com.qa.zepto.test.SearchPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@2cd76f31]" started-at="2025-11-12T14:10:21 IST" name="setup" finished-at="2025-11-12T14:10:28 IST" duration-ms="6761" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@5adb0db3]" started-at="2026-01-14T17:49:06 IST" name="setup" finished-at="2026-01-14T17:49:14 IST" duration-ms="7805" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -99,11 +68,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="GetSearchPageURL()[pri:0, instance:com.qa.zepto.test.SearchPageTest@2cd76f31]" started-at="2025-11-12T14:10:28 IST" name="GetSearchPageURL" finished-at="2025-11-12T14:10:28 IST" duration-ms="5" status="PASS">
+        <test-method signature="GetSearchPageURL()[pri:0, instance:com.qa.zepto.test.SearchPageTest@5adb0db3]" started-at="2026-01-14T17:49:14 IST" name="GetSearchPageURL" finished-at="2026-01-14T17:49:14 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- GetSearchPageURL -->
-        <test-method signature="SearchCall(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@2cd76f31]" started-at="2025-11-12T14:10:28 IST" name="SearchCall" data-provider="PutData" finished-at="2025-11-12T14:10:30 IST" duration-ms="2340" status="PASS">
+        <test-method signature="SearchCall(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@5adb0db3]" started-at="2026-01-14T17:49:14 IST" name="SearchCall" data-provider="PutData" finished-at="2026-01-14T17:49:16 IST" duration-ms="2182" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -114,7 +83,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchCall -->
-        <test-method signature="SearchCall(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@2cd76f31]" started-at="2025-11-12T14:10:30 IST" name="SearchCall" data-provider="PutData" finished-at="2025-11-12T14:10:32 IST" duration-ms="2013" status="PASS">
+        <test-method signature="SearchCall(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@5adb0db3]" started-at="2026-01-14T17:49:16 IST" name="SearchCall" data-provider="PutData" finished-at="2026-01-14T17:49:18 IST" duration-ms="2043" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -125,7 +94,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchCall -->
-        <test-method signature="SearchCall(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@2cd76f31]" started-at="2025-11-12T14:10:32 IST" name="SearchCall" data-provider="PutData" finished-at="2025-11-12T14:10:34 IST" duration-ms="2011" status="PASS">
+        <test-method signature="SearchCall(java.lang.String)[pri:0, instance:com.qa.zepto.test.SearchPageTest@5adb0db3]" started-at="2026-01-14T17:49:18 IST" name="SearchCall" data-provider="PutData" finished-at="2026-01-14T17:49:20 IST" duration-ms="2027" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -136,11 +105,42 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchCall -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.SearchPageTest@2cd76f31]" started-at="2025-11-12T14:10:34 IST" name="TearDown" finished-at="2025-11-12T14:10:34 IST" duration-ms="62" status="PASS">
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.SearchPageTest@5adb0db3]" started-at="2026-01-14T17:49:20 IST" name="TearDown" finished-at="2026-01-14T17:49:21 IST" duration-ms="505" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
       </class> <!-- com.qa.zepto.test.SearchPageTest -->
     </test> <!-- Search Page Test -->
+    <test started-at="2026-01-14T17:49:06 IST" name="Home Page Tests" finished-at="2026-01-14T17:49:22 IST" duration-ms="15757">
+      <class name="com.qa.zepto.test.HomePageTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.qa.zepto.test.HomePageTest@22356acd]" started-at="2026-01-14T17:49:06 IST" name="setup" finished-at="2026-01-14T17:49:13 IST" duration-ms="6751" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[url-HomePage]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="GetHomepageTitle()[pri:0, instance:com.qa.zepto.test.HomePageTest@22356acd]" started-at="2026-01-14T17:49:13 IST" name="GetHomepageTitle" finished-at="2026-01-14T17:49:13 IST" duration-ms="74" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetHomepageTitle -->
+        <test-method signature="GetHomepageUrl()[pri:0, instance:com.qa.zepto.test.HomePageTest@22356acd]" started-at="2026-01-14T17:49:13 IST" name="GetHomepageUrl" finished-at="2026-01-14T17:49:13 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetHomepageUrl -->
+        <test-method signature="Login()[pri:0, instance:com.qa.zepto.test.HomePageTest@22356acd]" started-at="2026-01-14T17:49:13 IST" name="Login" finished-at="2026-01-14T17:49:21 IST" duration-ms="8445" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.qa.zepto.test.HomePageTest@22356acd]" started-at="2026-01-14T17:49:21 IST" name="TearDown" finished-at="2026-01-14T17:49:22 IST" duration-ms="467" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- com.qa.zepto.test.HomePageTest -->
+    </test> <!-- Home Page Tests -->
   </suite> <!-- Regression PW Suite -->
 </testng-results>

@@ -13,6 +13,19 @@
       </class> <!-- com.qa.zepto.test.LandingPageTest -->
     </classes>
   </test> <!-- Landing Page Test(failed) -->
+  <test thread-count="4" parallel="tests" name="Login Page Tests(failed)" verbose="3">
+    <parameter name="baseURLKey" value="url-LoginPage"/>
+    <classes>
+      <class name="com.qa.zepto.test.LoginPageTest">
+        <methods>
+          <include name="TearDown"/>
+          <include name="loginurl"/>
+          <include name="performloginurl"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.qa.zepto.test.LoginPageTest -->
+    </classes>
+  </test> <!-- Login Page Tests(failed) -->
   <test thread-count="4" parallel="tests" name="Home Page Tests(failed)" verbose="3">
     <parameter name="baseURLKey" value="url-HomePage"/>
     <classes>
@@ -27,19 +40,6 @@
       </class> <!-- com.qa.zepto.test.HomePageTest -->
     </classes>
   </test> <!-- Home Page Tests(failed) -->
-  <test thread-count="4" parallel="tests" name="Login Page Tests(failed)" verbose="3">
-    <parameter name="baseURLKey" value="url-LoginPage"/>
-    <classes>
-      <class name="com.qa.zepto.test.LoginPageTest">
-        <methods>
-          <include name="TearDown"/>
-          <include name="performloginurl"/>
-          <include name="loginurl"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.qa.zepto.test.LoginPageTest -->
-    </classes>
-  </test> <!-- Login Page Tests(failed) -->
   <test thread-count="4" parallel="tests" name="Search Page Test(failed)" verbose="3">
     <parameter name="baseURLKey" value="url-SearchPage"/>
     <classes>

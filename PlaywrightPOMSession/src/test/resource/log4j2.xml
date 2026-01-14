@@ -2,8 +2,8 @@
 <Configuration status= "WARN">
 
 <Appenders>
-	<RollingFile name= "RollingFile" fileName= "logs/PlaywrightPOM.log"
-		filePattern= "logs/PlaywrightPOM-%d-%i.log.gz">
+	<RollingFile name= "RollingFile" fileName= "C:/PlaywrightPOMSession/PlaywrightPOM.log"
+		filePattern= "C:/PlaywrightPOMSession/PlaywrightPOM-%d-%i.log.gz">
 	<PatternLayout pattern= "%d %t %-5p %c - %m%n"/>
 	<Policies>
 	<SizeBasedTriggeringPolicy size= "2KB"/>

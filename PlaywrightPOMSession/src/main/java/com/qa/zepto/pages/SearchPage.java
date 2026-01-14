@@ -18,7 +18,7 @@ public class SearchPage {
 			
 		public String SearchPageUrl() {
 			String url = page.url();
-			System.out.println("URL:" + url);
+			logger.debug("URL:" + url);
 			return url;
 		}
 		
