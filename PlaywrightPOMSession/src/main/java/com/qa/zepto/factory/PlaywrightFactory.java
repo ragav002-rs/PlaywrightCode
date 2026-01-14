@@ -76,7 +76,7 @@ public class PlaywrightFactory {
 	
 	public Properties init_prop() throws IOException  {
 		
-		FileInputStream file = new FileInputStream("./src/test/resource/config/config.properties");
+		FileInputStream file = new FileInputStream("./src/test/resources/config/config.properties");
 		Properties prop = new Properties();
 		prop.load(file);
 
