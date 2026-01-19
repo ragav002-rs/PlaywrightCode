@@ -7,12 +7,13 @@ import com.microsoft.playwright.Page;
 
 public class LoginPage {
 	
-	Logger logger = LogManager.getLogger(LoginPage.class);
+	Logger logger= LogManager.getLogger(LoginPage.class);
 	Page page;
 	
 	private String emailid = "#username";
 	private String password = "#password";
 	private String Singin_btn = "button[type='submit']";
+	
 	
 	public LoginPage(Page page) {
 		this.page = page;
