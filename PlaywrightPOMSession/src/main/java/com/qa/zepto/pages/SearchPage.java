@@ -22,9 +22,9 @@ public class SearchPage {
 			return url;
 		}
 		
-		public void performsearch(String apparelname) {
+		public void performsearch(String productname) {
 			
-		page.fill(enterproduct, apparelname);
+		page.fill(enterproduct, productname);
 
 		}
 	}

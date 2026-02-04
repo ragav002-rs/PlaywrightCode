@@ -27,6 +27,7 @@ public class BaseTest {
 		@Parameters({"baseURLKey"})
 		@BeforeTest
 		public void setup(String baseURLKey) throws IOException {
+			
 		pf = new PlaywrightFactory();
 		prop = pf.init_prop();
 		page = pf.initBrowser(prop, baseURLKey);

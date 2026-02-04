@@ -2,7 +2,6 @@ package com.qa.zepto.factory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 import com.microsoft.playwright.Browser;
@@ -17,7 +16,6 @@ public class PlaywrightFactory {
 	Browser browser;
 	BrowserContext browsercontext;
 	Page page;
-	
 	Properties prop;
 	
 	private static ThreadLocal<Playwright> tlplaywright = new ThreadLocal<Playwright>();
@@ -45,33 +43,31 @@ public class PlaywrightFactory {
 	public Page initBrowser (Properties prop, String baseURLKey) {
 		
 		String browsername = prop.getProperty("browser").trim();
+		Boolean headless = Boolean.parseBoolean(prop.getProperty("headless").trim());
 		tlplaywright.set(Playwright.create());
 		
 		switch (browsername.toLowerCase()) {
 		case "chromium":
-			tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true)));
+			tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless)));
 		break;
 		case "firefox":
-			tlbrowser.set(getplaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(true)));
+			tlbrowser.set(getplaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(headless)));
 		break;
 		case "webkit":
-			tlbrowser.set(getplaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(true)));
+			tlbrowser.set(getplaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(headless)));
 		break;
 		case "chrome":
-		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setChannel("chrome")));
+		tlbrowser.set(getplaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless).setChannel("chrome")));
 		break;
 		default:
-		System.out.println("Please pass correct browsername"); 
-		break;
-		
+		System.out.println("Please pass the right Browsername"); 
+		break;		
 		}
 		
 		tlbrowsercontext.set(getbrowser().newContext());
 		tlpage.set(getbrowsercontext().newPage());
 		getpage().navigate(prop.getProperty(baseURLKey).trim());
 		return getpage();
-		
-	
 	}
 	
 	public Properties init_prop() throws IOException  {
@@ -79,8 +75,6 @@ public class PlaywrightFactory {
 		FileInputStream file = new FileInputStream("./src/test/resources/config/config.properties");
 		Properties prop = new Properties();
 		prop.load(file);
-
-	
 		return prop;
 	}
 }
