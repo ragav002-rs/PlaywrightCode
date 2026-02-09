@@ -42,8 +42,8 @@ public class PlaywrightFactory {
 	
 	public Page initBrowser (Properties prop, String baseURLKey) {
 		
-		String browsername = prop.getProperty("browser").trim();
-		Boolean headless = Boolean.parseBoolean(prop.getProperty("headless").trim());
+		String browsername = System.setProperty("browser", prop.getProperty("browser")).trim();
+		Boolean headless = Boolean.parseBoolean(System.setProperty("browser", prop.getProperty("browser")).trim());
 		tlplaywright.set(Playwright.create());
 		
 		switch (browsername.toLowerCase()) {
